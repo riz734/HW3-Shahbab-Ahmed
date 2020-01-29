@@ -22,7 +22,7 @@ class Random_Quote_Generator:
     def quote(self):
         num = random.randrange(0, len(self.quotes_list) - 1)
         self.quote_history_list.append(num)
-        return self.quotes_list[num] + self.author_list[num]
+        return self.quotes_list[num] + " - " + self.author_list[num]
     # create the quote method
     # it randomly picks an index from 0 to the number of items in the quotes_list minus one
     # it adds that index to the end of the quote_history_list
@@ -42,7 +42,7 @@ class Random_Quote_Generator:
     
     def print_history(self):
         for i in self.quote_history_list:
-            print("[" + i + "] " self.quotes_list[i] " - " + self.author_list[i])
+            print("[" + str(i) + "] " + self.quotes_list[i] + " - " + self.author_list[i])
     # create the print_history method
     # prints "[index] Quote - Author" for each of the indicies in the quote_history_list
     # from the first to the last with each on a single line
@@ -54,16 +54,20 @@ class Random_Quote_Generator:
             if i == index:
                 count += 1
         
-        print(str(index) + " occured " + str(count) + "times")
+        print(str(index) + " occured " + str(count) + " times")
         
-        return (str(index) + " occured " + str(count) + "times")
+        return (str(index) + " occured " + str(count) + " times")
     # create the print_count_for_num method
     # it prints and returns how many times the passed index is found in the quote_history_list
     # The return statement is "<index> occurned <N> times" (printing format and example also provided in the instruction document)
 
     # EXTRA POINTS
-    def five_hundred method(self):
+    #def five_hundred(self):
         
+    #    for i in range(500):
+    #        self.quote()
+    
+
     # it calls the quote method 500 times, prints the counts for each index, and
     # prints the most frequently occurring index (printing format and example provided in the instruction document)
 
@@ -110,8 +114,8 @@ def main():
 
     #EXTRA POINTS
     #Try telling 500 quotes: Comment in the lines below if you attemp the extra credit!
-    # print("\nTesting the five_hundred method")
-    # quote_bot2.five_hundred()
+    #print("\nTesting the five_hundred method")
+    #quote_bot2.five_hundred()
 
 
 # only run the main function if this file is being run (not imported)

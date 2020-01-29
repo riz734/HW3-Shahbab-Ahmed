@@ -20,6 +20,7 @@ class Random_Quote_Generator:
     # it sets this object's author_list (instance variable) to the passed list of authors
     # it sets this object's quote_history_list to the empty list (instance variable)
     def quote(self):
+
         num = random.randrange(0, len(self.quotes_list) - 1)
         self.quote_history_list.append(num)
         return self.quotes_list[num] + " - " + self.author_list[num]
@@ -62,21 +63,33 @@ class Random_Quote_Generator:
     # The return statement is "<index> occurned <N> times" (printing format and example also provided in the instruction document)
 
     # EXTRA POINTS
-    #def five_hundred(self):
+    def five_hundred(self):
+        for i in range(500):
+            self.quote()
+        new_dict = {}
+
+        for i in self.quote_history_list:
+            if i not in new_dict:
+                new_dict[i] = 1
+            else:
+                new_dict[i] += 1
         
-    #    for i in range(500):
-    #        self.quote()
-    
+        for i in new_dict:
+            print(str(i) + ": " + str(new_dict[i]))
+        
+        highest = max(new_dict, key=new_dict.get)
+
+        print("The most frequent index after 500 quotes was: " + str(highest))    
 
     # it calls the quote method 500 times, prints the counts for each index, and
     # prints the most frequently occurring index (printing format and example provided in the instruction document)
 
 def main():
     # You are welcome to replace the quotes and names with your favorite quotes and authors 
-    quote_list = ["If one is lucky, a solitary fantasy can totally transform one million realities.", \
-    "Do not follow where the path may lead. Go, instead, where there is no path and leave a trail." \
-    "We cannot solve our problems with the same thinking we used when we created them." \
-    "We read the world wrong and say that it deceives us." \
+    quote_list = ["If one is lucky, a solitary fantasy can totally transform one million realities.",
+    "Do not follow where the path may lead. Go, instead, where there is no path and leave a trail.",
+    "We cannot solve our problems with the same thinking we used when we created them.",
+    "We read the world wrong and say that it deceives us.",
     "Get your facts first, then you can distort them as you please."]
 
     author_list = ["Maya Angelou", "Ralph Waldo Emerson", "Albert Einstein", "Rabindranath Tagore", "Mark Twain"]
@@ -114,8 +127,8 @@ def main():
 
     #EXTRA POINTS
     #Try telling 500 quotes: Comment in the lines below if you attemp the extra credit!
-    #print("\nTesting the five_hundred method")
-    #quote_bot2.five_hundred()
+    print("\nTesting the five_hundred method")
+    quote_bot2.five_hundred()
 
 
 # only run the main function if this file is being run (not imported)

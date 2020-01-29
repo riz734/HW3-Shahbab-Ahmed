@@ -1,6 +1,6 @@
-# Your name:
-# Your student id:
-# Your email:
+# Your name: Shahbab Ahmed
+# Your student id: 64818147
+# Your email: shahbaba@umich.edu
 # List who you have worked with on this homework:
 
 # import the random module for use in this program
@@ -8,6 +8,10 @@ import random
 
 # Create the class Random_Quote_Generator
 class Random_Quote_Generator:
+    def __init__(self, quotes_list, author_list):
+        self.quotes_list = quotes_list
+        self.author_list = author_list
+        self.quote_history_list = []
     # create the constructor (__init__) method
     # it takes as input:
     #   a list of possible quotes and
@@ -15,29 +19,51 @@ class Random_Quote_Generator:
     # it sets this object's quotes_list (instance variable) to the passed list of quotes
     # it sets this object's author_list (instance variable) to the passed list of authors
     # it sets this object's quote_history_list to the empty list (instance variable)
-
+    def quote(self):
+        num = random.randrange(0, len(self.quotes_list) - 1)
+        self.quote_history_list.append(num)
+        return self.quotes_list[num] + self.author_list[num]
     # create the quote method
     # it randomly picks an index from 0 to the number of items in the quotes_list minus one
     # it adds that index to the end of the quote_history_list
     # it returns a string combining the quote and the author at that index in this object's quotes_list
     # "Quote - Author"
 
+    def __str__(self):
+        if len(self.quote_history_list) == 0:
+            return "No quotes so far!"
+        else:
+            recent = self.quote_history_list[-1]
+            return "Most recent: " + self.quotes_list[recent] + " - " + self.author_list[recent]
     # create the __str__ method
     # if the length of quote_history_list is 0 it returns "No quotes so far!"
     # else it returns the quote and the author at the last index in the quote_history_list as
     # "Most recent: Quote - Author"
-
+    
+    def print_history(self):
+        for i in self.quote_history_list:
+            print("[" + i + "] " self.quotes_list[i] " - " + self.author_list[i])
     # create the print_history method
     # prints "[index] Quote - Author" for each of the indicies in the quote_history_list
     # from the first to the last with each on a single line
     # it does not return anything!
 
+    def print_count_for_num(self, index):
+        count = 0
+        for i in self.quote_history_list:
+            if i == index:
+                count += 1
+        
+        print(str(index) + " occured " + str(count) + "times")
+        
+        return (str(index) + " occured " + str(count) + "times")
     # create the print_count_for_num method
     # it prints and returns how many times the passed index is found in the quote_history_list
     # The return statement is "<index> occurned <N> times" (printing format and example also provided in the instruction document)
 
     # EXTRA POINTS
-    # create the five_hundred method
+    def five_hundred method(self):
+        
     # it calls the quote method 500 times, prints the counts for each index, and
     # prints the most frequently occurring index (printing format and example provided in the instruction document)
 

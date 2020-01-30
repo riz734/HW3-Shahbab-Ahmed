@@ -1,7 +1,7 @@
 # Your name: Shahbab Ahmed
 # Your student id: 64818147
 # Your email: shahbaba@umich.edu
-# List who you have worked with on this homework:
+# List who you have worked with on this homework: Amirul Miah
 
 # import the random module for use in this program
 import random
@@ -66,6 +66,7 @@ class Random_Quote_Generator:
     def five_hundred(self):
         for i in range(500):
             self.quote()
+        
         new_dict = {}
 
         for i in self.quote_history_list:
@@ -127,6 +128,7 @@ def main():
 
     #EXTRA POINTS
     #Try telling 500 quotes: Comment in the lines below if you attemp the extra credit!
+    # Attempted the extra points
     print("\nTesting the five_hundred method")
     quote_bot2.five_hundred()
 
